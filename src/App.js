@@ -7,7 +7,11 @@ function App() {
   //     <h1>Hi i'm a React App</h1>
   //   </div>
   // );
-  return React.createElement("div", null, "", "h1", "Hi i'm a React App");
+  return React.createElement(
+    "div",
+    null,
+    React.createElement("h1", null, "Does this works now?")
+  );
 }
 
 export default App;
