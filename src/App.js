@@ -8,6 +8,8 @@ function App() {
       <h1>Hi i'm a React App</h1>
       <p>This is really working!</p>
       <Person />
+      <Person />
+      <Person />
     </div>
   );
   // return React.createElement(
