@@ -10,10 +10,16 @@ function App() {
       { name: "Vignesh", age: 28 },
     ],
   });
+
+  const switchNameHandler = () => {
+    console.log("Was Clicked!");
+  };
+
   return (
     <div className="App">
       <h1>Hi i'm a React App</h1>
       <p>This is really working!</p>
+      <button onClick={switchNameHandler}>Switch Name</button>
       <Person name={state.persons[0].name} age={state.persons[0].age} />
       <Person name={state.persons[1].name} age={state.persons[1].age}>
         My Hobbies : Learning New Things
