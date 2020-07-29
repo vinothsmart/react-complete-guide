@@ -9,10 +9,19 @@ function App() {
       { name: "Ajitha", age: 29 },
       { name: "Vignesh", age: 28 },
     ],
+    otherState: "Some Other Value",
   });
 
   const switchNameHandler = () => {
-    console.log("Was Clicked!");
+    // console.log("Was Clicked!");
+    // Don't do this not working state.persons[0].name = "Kanna";
+    setState({
+      persons: [
+        { name: "Kanna", age: 30 },
+        { name: "Ajitha", age: 29 },
+        { name: "Vignesh", age: 45 },
+      ],
+    });
   };
 
   return (
