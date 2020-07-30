@@ -15,12 +15,12 @@ function App() {
 
   console.log(state, otheState);
 
-  const switchNameHandler = () => {
+  const switchNameHandler = (newName) => {
     // console.log("Was Clicked!");
     // Don't do this not working state.persons[0].name = "Kanna";
     setState({
       persons: [
-        { name: "Kanna", age: 30 },
+        { name: newName, age: 30 },
         { name: "Ajitha", age: 29 },
         { name: "Vignesh", age: 45 },
       ],
@@ -31,12 +31,14 @@ function App() {
     <div className="App">
       <h1>Hi i'm a React App</h1>
       <p>This is really working!</p>
-      <button onClick={switchNameHandler}>Switch Name</button>
+      <button onClick={switchNameHandler.bind(this, "Kanna")}>
+        Switch Name
+      </button>
       <Person name={state.persons[0].name} age={state.persons[0].age} />
       <Person
         name={state.persons[1].name}
         age={state.persons[1].age}
-        click={switchNameHandler}
+        click={switchNameHandler.bind(this, "Mol")}
       >
         My Hobbies : Learning New Things
       </Person>
