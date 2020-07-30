@@ -33,7 +33,11 @@ function App() {
       <p>This is really working!</p>
       <button onClick={switchNameHandler}>Switch Name</button>
       <Person name={state.persons[0].name} age={state.persons[0].age} />
-      <Person name={state.persons[1].name} age={state.persons[1].age}>
+      <Person
+        name={state.persons[1].name}
+        age={state.persons[1].age}
+        click={switchNameHandler}
+      >
         My Hobbies : Learning New Things
       </Person>
       <Person name={state.persons[2].name} age={state.persons[2].age} />
