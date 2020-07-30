@@ -31,14 +31,12 @@ function App() {
     <div className="App">
       <h1>Hi i'm a React App</h1>
       <p>This is really working!</p>
-      <button onClick={switchNameHandler.bind(this, "Kanna")}>
-        Switch Name
-      </button>
+      <button onClick={() => switchNameHandler("Kanna")}>Switch Name</button>
       <Person name={state.persons[0].name} age={state.persons[0].age} />
       <Person
         name={state.persons[1].name}
         age={state.persons[1].age}
-        click={switchNameHandler.bind(this, "Mol")}
+        click={() => switchNameHandler("Mol")}
       >
         My Hobbies : Learning New Things
       </Person>
