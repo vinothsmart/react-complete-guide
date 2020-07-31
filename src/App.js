@@ -49,7 +49,10 @@ function App() {
   if (showPersons === true) {
     persons = (
       <div>
-        <Person name={state.persons[0].name} age={state.persons[0].age} />
+        {state.persons.map((person) => {
+          return <Person name={person.name} age={person.age} />;
+        })}
+        {/* <Person name={state.persons[0].name} age={state.persons[0].age} />
         <Person
           name={state.persons[1].name}
           age={state.persons[1].age}
@@ -58,7 +61,7 @@ function App() {
         >
           My Hobbies : Learning New Things
         </Person>
-        <Person name={state.persons[2].name} age={state.persons[2].age} />
+        <Person name={state.persons[2].name} age={state.persons[2].age} /> */}
       </div>
     );
   }
