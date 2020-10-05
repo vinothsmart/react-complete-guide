@@ -11,11 +11,11 @@ function App() {
     ],
   });
 
-  const [otheState, setOtherState] = useState("Some Other Value");
+  const [otherState, setOtherState] = useState("Some Other Value");
 
   const [showPersons, setShowPersons] = useState(false);
 
-  // console.log(state, otheState);
+  // console.log(state, otherState);
 
   const switchNameHandler = (newName) => {
     // console.log("Was Clicked!");
@@ -45,7 +45,11 @@ function App() {
   };
 
   const deletePersonsHandler = (personsIndex) => {
-    const persons = state.persons;
+    // In Earlier we used slice method
+    // const persons = state.persons.slice();
+
+    // This is Es6 feature using the spread operator
+    const persons = [...state.persons];
     persons.splice(personsIndex, 1);
     setState({ persons: persons });
   };
