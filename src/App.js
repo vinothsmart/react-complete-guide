@@ -29,14 +29,29 @@ function App() {
     });
   };
 
-  const nameChangeHandler = (event) => {
-    setState({
-      persons: [
-        { name: "Kanna", age: 30 },
-        { name: event.target.value, age: 29 },
-        { name: "Vignesh", age: 45 },
-      ],
+  const nameChangeHandler = (event, id) => {
+    const personIndex = state.persons.findIndex((p) => {
+      return p.id === id;
     });
+
+    const person = { ...state.persons[personIndex] };
+
+    person.name = event.target.value;
+
+    const persons = [...state.persons];
+    persons[personIndex] = person;
+
+    setState({
+      persons: persons,
+    });
+
+    // setState({
+    //   persons: [
+    //     { name: "Kanna", age: 30 },
+    //     { name: event.target.value, age: 29 },
+    //     { name: "Vignesh", age: 45 },
+    //   ],
+    // });
   };
 
   const togglePersonsHandler = () => {
@@ -66,6 +81,7 @@ function App() {
               name={person.name}
               age={person.age}
               key={person.id}
+              changed={(event) => nameChangeHandler(event, person.id)}
             />
           );
         })}
