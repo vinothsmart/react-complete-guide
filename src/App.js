@@ -5,9 +5,9 @@ import Person from "./Person/Person";
 function App() {
   const [state, setState] = useState({
     persons: [
-      { name: "Vinoth", age: 30 },
-      { name: "Ajitha", age: 29 },
-      { name: "Vignesh", age: 28 },
+      { id: "asddsa", name: "Vinoth", age: 30 },
+      { id: "asddsa2", name: "Ajitha", age: 29 },
+      { id: "asddsa3", name: "Vignesh", age: 28 },
     ],
   });
 
@@ -65,6 +65,7 @@ function App() {
               click={() => deletePersonsHandler(index)}
               name={person.name}
               age={person.age}
+              key={person.id}
             />
           );
         })}
