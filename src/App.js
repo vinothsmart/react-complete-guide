@@ -69,6 +69,15 @@ function App() {
     setState({ persons: persons });
   };
 
+  const style = {
+    backgroundColor: "green",
+    color: "white",
+    font: "inherit",
+    border: "1px solid blue",
+    padding: "8px",
+    cursor: "pointer",
+  };
+
   let persons = null;
 
   if (showPersons === true) {
@@ -97,16 +106,8 @@ function App() {
         <Person name={state.persons[2].name} age={state.persons[2].age} /> */}
       </div>
     );
+    style.backgroundColor = "red";
   }
-
-  const style = {
-    backgroundColor: "green",
-    color: "white",
-    font: "inherit",
-    border: "1px solid blue",
-    padding: "8px",
-    cursor: "pointer",
-  };
 
   return (
     <div className="App">
