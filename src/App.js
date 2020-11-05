@@ -77,6 +77,10 @@ function App() {
     border: "1px solid blue",
     padding: "8px",
     cursor: "pointer",
+    ":hover": {
+      backgroundColor: "lightgreen",
+      color: "black",
+    },
   };
 
   let persons = null;
@@ -108,6 +112,10 @@ function App() {
       </div>
     );
     style.backgroundColor = "red";
+    style[":hover"] = {
+      backgroundColor: "salmon",
+      color: "black",
+    };
   }
 
   // let classes = ["red", "bold"].join(" ");
