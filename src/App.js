@@ -12,23 +12,23 @@ function App() {
     ],
   });
 
-  const [otherState, setOtherState] = useState("Some Other Value");
+  // const [otherState, setOtherState] = useState("Some Other Value");
 
   const [showPersons, setShowPersons] = useState(false);
 
   // console.log(state, otherState);
 
-  const switchNameHandler = (newName) => {
-    // console.log("Was Clicked!");
-    // Don't do this not working state.persons[0].name = "Kanna";
-    setState({
-      persons: [
-        { name: newName, age: 30 },
-        { name: "Ajitha", age: 29 },
-        { name: "Vignesh", age: 45 },
-      ],
-    });
-  };
+  // const switchNameHandler = (newName) => {
+  //   // console.log("Was Clicked!");
+  //   // Don't do this not working state.persons[0].name = "Kanna";
+  //   setState({
+  //     persons: [
+  //       { name: newName, age: 30 },
+  //       { name: "Ajitha", age: 29 },
+  //       { name: "Vignesh", age: 45 },
+  //     ],
+  //   });
+  // };
 
   const nameChangeHandler = (event, id) => {
     const personIndex = state.persons.findIndex((p) => {
@@ -85,7 +85,7 @@ function App() {
 
   let persons = null;
 
-  if (showPersons === true) {
+  if (showPersons) {
     persons = (
       <div>
         {state.persons.map((person, index) => {
