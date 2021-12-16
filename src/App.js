@@ -4,7 +4,7 @@ import Person from "./Person/Person";
 import styled from "styled-components";
 
 const StyledButton = styled.button`
-  background-color: green;
+  background-color: ${(props) => (props.alt ? "red" : "green")};
   color: white;
   font: inherit;
   border: 1px solid blue;
@@ -12,7 +12,7 @@ const StyledButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: lightgreen;
+    background-color: ${(props) => (props.alt ? "salmon" : "lightgreen")};
     color: black;
   }
 `;
@@ -86,18 +86,18 @@ function App() {
     setState({ persons: persons });
   };
 
-  const style = {
-    backgroundColor: "green",
-    color: "white",
-    font: "inherit",
-    border: "1px solid blue",
-    padding: "8px",
-    cursor: "pointer",
-    ":hover": {
-      backgroundColor: "lightgreen",
-      color: "black",
-    },
-  };
+  // const style = {
+  //   backgroundColor: "green",
+  //   color: "white",
+  //   font: "inherit",
+  //   border: "1px solid blue",
+  //   padding: "8px",
+  //   cursor: "pointer",
+  //   ":hover": {
+  //     backgroundColor: "lightgreen",
+  //     color: "black",
+  //   },
+  // };
 
   let persons = null;
 
@@ -127,11 +127,11 @@ function App() {
         <Person name={state.persons[2].name} age={state.persons[2].age} /> */}
       </div>
     );
-    style.backgroundColor = "red";
-    style[":hover"] = {
-      backgroundColor: "salmon",
-      color: "black",
-    };
+    // style.backgroundColor = "red";
+    // style[":hover"] = {
+    //   backgroundColor: "salmon",
+    //   color: "black",
+    // };
   }
 
   // let classes = ["red", "bold"].join(" ");
@@ -148,7 +148,9 @@ function App() {
     <div className="App">
       <h1>Hi i'm a React App</h1>
       <p className={classes.join(" ")}>This is really working!</p>
-      <StyledButton onClick={togglePersonsHandler}>Toggle Persons</StyledButton>
+      <StyledButton alt={showPersons} onClick={togglePersonsHandler}>
+        Toggle Persons
+      </StyledButton>
       {persons}
     </div>
   );
