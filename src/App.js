@@ -37,6 +37,9 @@ function App() {
 
     const person = { ...state.persons[personIndex] };
 
+    // alternative way to do it
+    // const person = Object.assign({}, state.persons[personIndex]);
+
     person.name = event.target.value;
 
     const persons = [...state.persons];
