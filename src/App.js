@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./App.css";
+import classes from "./App.css";
 import Person from "./Person/Person";
 
 function App() {
@@ -121,20 +121,20 @@ function App() {
   }
 
   // let classes = ["red", "bold"].join(" ");
-  const classes = [];
+  const assignedClasses = [];
   if (state.persons.length <= 2) {
-    classes.push("red"); // classes = ['red']
+    assignedClasses.push(classes.red); // classes = ['red']
   }
 
   if (state.persons.length <= 1) {
-    classes.push("bold"); // classes = ['red', 'bold']
+    assignedClasses.push(classes.bold); // classes = ['red', 'bold']
   }
 
   return (
-    <div className="App">
+    <div className={classes.App}>
       <h1>Hi i'm a React App</h1>
-      <p className={classes.join(" ")}>This is really working!</p>
-      <button className="button" onClick={togglePersonsHandler}>
+      <p className={assignedClasses.join(" ")}>This is really working!</p>
+      <button className={classes.Button} onClick={togglePersonsHandler}>
         Toggle Persons
       </button>
       {persons}
