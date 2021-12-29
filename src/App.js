@@ -3,6 +3,7 @@ import classes from "./App.css";
 import Person from "./Person/Person";
 
 function App() {
+  const btnClass = [classes.Button];
   const [state, setState] = useState({
     persons: [
       { id: "asddsa", name: "Vinoth", age: 30 },
@@ -118,6 +119,7 @@ function App() {
     //   backgroundColor: "salmon",
     //   color: "black",
     // };
+    btnClass.push(classes.Red);
   }
 
   // let classes = ["red", "bold"].join(" ");
@@ -134,7 +136,7 @@ function App() {
     <div className={classes.App}>
       <h1>Hi i'm a React App</h1>
       <p className={assignedClasses.join(" ")}>This is really working!</p>
-      <button className={classes.Button} onClick={togglePersonsHandler}>
+      <button className={btnClass.join(" ")} onClick={togglePersonsHandler}>
         Toggle Persons
       </button>
       {persons}
