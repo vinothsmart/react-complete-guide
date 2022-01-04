@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import classes from "./App.css";
+import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
 import Person from "./Person/Person";
 
 function App() {
@@ -93,13 +94,14 @@ function App() {
       <div>
         {state.persons.map((person, index) => {
           return (
-            <Person
-              click={() => deletePersonsHandler(index)}
-              name={person.name}
-              age={person.age}
-              key={person.id}
-              changed={(event) => nameChangeHandler(event, person.id)}
-            />
+            <ErrorBoundary key={person.id}>
+              <Person
+                click={() => deletePersonsHandler(index)}
+                name={person.name}
+                age={person.age}
+                changed={(event) => nameChangeHandler(event, person.id)}
+              />
+            </ErrorBoundary>
           );
         })}
         {/* <Person name={state.persons[0].name} age={state.persons[0].age} />
