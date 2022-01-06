@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = () => {
@@ -18,10 +18,21 @@ const ExpenseForm = () => {
     });
   };
 
-  console.log(values);
+  const handleSubmit = useCallback(
+    (e) => {
+      e.preventDefault();
+      const expensesData = {
+        title: values.title,
+        amount: values.amount,
+        date: new Date(values.date),
+      };
+      console.log(expensesData);
+    },
+    [values]
+  );
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
