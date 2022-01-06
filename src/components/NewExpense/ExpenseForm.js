@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import "./ExpenseForm.css";
 
-const ExpenseForm = () => {
+const ExpenseForm = ({ onSave }) => {
   const [values, setValues] = useState({
     title: "",
     amount: "",
@@ -26,14 +26,14 @@ const ExpenseForm = () => {
         amount: values.amount,
         date: new Date(values.date),
       };
-      console.log(expensesData);
+      onSave(expensesData);
       setValues({
         title: "",
         amount: "",
         date: "",
       });
     },
-    [values]
+    [values, onSave]
   );
 
   return (
