@@ -9,11 +9,16 @@ const ExpenseForm = () => {
   });
 
   const handleChange = (e) => {
-    setValues({
-      ...values,
-      [e.target.name]: e.target.value,
+    // setValues({
+    //   ...values,
+    //   [e.target.name]: e.target.value,
+    // });
+    setValues((preValue) => {
+      return { ...preValue, [e.target.name]: e.target.value };
     });
   };
+
+  console.log(values);
 
   return (
     <form>
