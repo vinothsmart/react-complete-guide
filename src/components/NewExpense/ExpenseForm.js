@@ -27,6 +27,11 @@ const ExpenseForm = () => {
         date: new Date(values.date),
       };
       console.log(expensesData);
+      setValues({
+        title: "",
+        amount: "",
+        date: "",
+      });
     },
     [values]
   );
@@ -36,7 +41,12 @@ const ExpenseForm = () => {
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input type="text" name="title" onChange={handleChange} />
+          <input
+            type="text"
+            name="title"
+            onChange={handleChange}
+            value={values.title}
+          />
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
@@ -46,6 +56,7 @@ const ExpenseForm = () => {
             min="0.01"
             step="0.01"
             onChange={handleChange}
+            value={values.amount}
           />
         </div>
         <div className="new-expense__control">
@@ -56,6 +67,7 @@ const ExpenseForm = () => {
             min="2019-01-01"
             max="2022-12-31"
             onChange={handleChange}
+            value={values.date}
           />
         </div>
       </div>
