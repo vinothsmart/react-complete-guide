@@ -9,10 +9,13 @@ const ExpenseForm = ({ onSave }) => {
   });
 
   const handleChange = (e) => {
+    // this is destructing apporach
     // setValues({
     //   ...values,
     //   [e.target.name]: e.target.value,
     // });
+
+    // this is callback approach best approach
     setValues((preValue) => {
       return { ...preValue, [e.target.name]: e.target.value };
     });
