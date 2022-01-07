@@ -7,13 +7,13 @@ const INTIAL_EXPENSES = [
     id: "e1",
     title: "Car Insurance",
     amount: "Rs. 3200",
-    date: new Date(2021, 0, 17),
+    date: new Date(2020, 0, 17),
   },
   {
     id: "e2",
     title: "Bike Insurance",
     amount: "Rs. 1045",
-    date: new Date(2021, 2, 17),
+    date: new Date(2019, 2, 17),
   },
   {
     id: "e3",
