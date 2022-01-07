@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import "./ExpenseFilter.css";
+import "./ExpensesFilter.css";
 
 const ExpensesFilter = ({ onChangeFilter, selected }) => {
   const handleFilter = useCallback(
