@@ -12,6 +12,10 @@ const AddUser = ({ username, age }) => {
   const addUserHandler = (e) => {
     e.preventDefault();
     console.log(values);
+    setValues({
+      username: "",
+      age: "",
+    });
   };
 
   const inputChangeHandler = (e) => {
@@ -25,9 +29,19 @@ const AddUser = ({ username, age }) => {
     <Card className={classes.input}>
       <form onSubmit={addUserHandler}>
         <label htmlFor="username">UserName</label>
-        <input id="username" type="text" onChange={inputChangeHandler} />
+        <input
+          id="username"
+          type="text"
+          onChange={inputChangeHandler}
+          value={values.username}
+        />
         <label htmlFor="age">Age (Years)</label>
-        <input id="age" type="number" onChange={inputChangeHandler} />
+        <input
+          id="age"
+          type="number"
+          onChange={inputChangeHandler}
+          value={values.age}
+        />
         <Button type="submit">Add User</Button>
       </form>
     </Card>
