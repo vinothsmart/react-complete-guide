@@ -2,7 +2,7 @@ import { useState } from "react";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
 
-function App() {
+const App = () => {
   const [expenses, setExpenses] = useState([
     {
       id: "e1",
@@ -32,6 +32,6 @@ function App() {
       <Expenses items={expenses} />
     </div>
   );
-}
+};
 
 export default App;
