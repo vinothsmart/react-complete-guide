@@ -16,9 +16,14 @@ const ExpenseForm = ({ onSave, onCancel }) => {
     // });
 
     // this is callback approach best approach
-    setValues((preValue) => {
-      return { ...preValue, [e.target.name]: e.target.value };
-    });
+    // setValues((preValue) => {
+    //   return { ...preValue, [e.target.name]: e.target.value };
+    // });
+
+    setValues((preValues) => ({
+      ...preValues,
+      [e.target.name]: e.target.value,
+    }));
   };
 
   const handleSubmit = useCallback(

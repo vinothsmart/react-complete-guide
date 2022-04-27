@@ -4,6 +4,7 @@ import "./NewExpense.css";
 
 const NewExpense = ({ handleAddExpense }) => {
   const [isEditing, setIsEditing] = useState(false);
+
   const saveExpense = (expense) => {
     const newExpense = {
       ...expense,
@@ -12,6 +13,7 @@ const NewExpense = ({ handleAddExpense }) => {
     handleAddExpense(newExpense);
     setIsEditing(false);
   };
+
   const handleEditExpense = () => {
     setIsEditing(true);
   };
