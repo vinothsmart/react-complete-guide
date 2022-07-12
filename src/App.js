@@ -6,7 +6,7 @@ const App = () => {
   const [expenses, setExpenses] = useState([
     {
       id: "e1",
-      title: "Car Insurance",
+      title: "Car Insurance1",
       amount: "Rs. 3200",
       date: new Date(2021, 0, 17),
     },
