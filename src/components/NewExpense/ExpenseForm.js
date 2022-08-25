@@ -15,7 +15,7 @@ const ExpenseForm = ({ onSave, onCancel }) => {
     //   [e.target.name]: e.target.value,
     // });
 
-    // this is callback approach best approach
+    // this is callback approach best approach using anonymous function
     // setValues((preValue) => {
     //   return { ...preValue, [e.target.name]: e.target.value };
     // });
