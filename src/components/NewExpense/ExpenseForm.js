@@ -8,7 +8,7 @@ const ExpenseForm = ({ onSave, onCancel }) => {
     date: "",
   });
 
-  const handleChange = (e) => {
+  const handleChange = useCallback((e) => {
     // this is destructing apporach
     // setValues({
     //   ...values,
@@ -24,7 +24,7 @@ const ExpenseForm = ({ onSave, onCancel }) => {
       ...preValues,
       [e.target.name]: e.target.value,
     }));
-  };
+  }, []);
 
   const handleSubmit = useCallback(
     (e) => {
