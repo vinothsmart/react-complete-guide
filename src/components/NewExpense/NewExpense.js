@@ -17,19 +17,19 @@ const NewExpense = ({ handleAddExpense }) => {
     [handleAddExpense]
   );
 
-  const handleEditExpense = useCallback(() => {
+  const UpadteExpense = useCallback(() => {
     setIsEditing(true);
   }, []);
 
-  const handleCancelExpense = useCallback(() => {
+  const cancelExpense = useCallback(() => {
     setIsEditing(false);
   }, []);
 
   return (
     <div className="new-expense">
-      {!isEditing && <button onClick={handleEditExpense}>Add Expense</button>}
+      {!isEditing && <button onClick={UpadteExpense}>Add Expense</button>}
       {isEditing && (
-        <ExpenseForm onSave={saveExpense} onCancel={handleCancelExpense} />
+        <ExpenseForm onSave={saveExpense} onCancel={cancelExpense} />
       )}
     </div>
   );
