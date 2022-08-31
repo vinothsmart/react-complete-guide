@@ -1,26 +1,29 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import ExpenseForm from "./ExpenseForm";
 import "./NewExpense.css";
 
 const NewExpense = ({ handleAddExpense }) => {
   const [isEditing, setIsEditing] = useState(false);
 
-  const saveExpense = (expense) => {
-    const newExpense = {
-      ...expense,
-      id: Math.random().toString(),
-    };
-    handleAddExpense(newExpense);
-    setIsEditing(false);
-  };
+  const saveExpense = useCallback(
+    (expense) => {
+      const newExpense = {
+        ...expense,
+        id: Math.random().toString(),
+      };
+      handleAddExpense(newExpense);
+      setIsEditing(false);
+    },
+    [handleAddExpense]
+  );
 
-  const handleEditExpense = () => {
+  const handleEditExpense = useCallback(() => {
     setIsEditing(true);
-  };
+  }, []);
 
-  const handleCancelExpense = () => {
+  const handleCancelExpense = useCallback(() => {
     setIsEditing(false);
-  };
+  }, []);
 
   return (
     <div className="new-expense">
