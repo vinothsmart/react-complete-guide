@@ -2,7 +2,7 @@ import { useState, useCallback } from "react";
 import ExpenseForm from "./ExpenseForm";
 import "./NewExpense.css";
 
-const NewExpense = ({ handleAddExpense }) => {
+const NewExpense = ({ onAddExpense }) => {
   const [isEditing, setIsEditing] = useState(false);
 
   const saveExpense = useCallback(
@@ -11,13 +11,13 @@ const NewExpense = ({ handleAddExpense }) => {
         ...expense,
         id: Math.random().toString(),
       };
-      handleAddExpense(newExpense);
+      onAddExpense(newExpense);
       setIsEditing(false);
     },
-    [handleAddExpense]
+    [onAddExpense]
   );
 
-  const UpadteExpense = useCallback(() => {
+  const upadteExpense = useCallback(() => {
     setIsEditing(true);
   }, []);
 
@@ -27,7 +27,7 @@ const NewExpense = ({ handleAddExpense }) => {
 
   return (
     <div className="new-expense">
-      {!isEditing && <button onClick={UpadteExpense}>Add Expense</button>}
+      {!isEditing && <button onClick={upadteExpense}>Add Expense</button>}
       {isEditing && (
         <ExpenseForm onSave={saveExpense} onCancel={cancelExpense} />
       )}
