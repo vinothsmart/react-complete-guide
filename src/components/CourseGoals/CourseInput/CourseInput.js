@@ -1,19 +1,25 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from "react";
 
-import Button from '../../UI/Button/Button';
-import './CourseInput.css';
+import Button from "../../UI/Button/Button";
+import "./CourseInput.css";
 
-const CourseInput = props => {
-  const [enteredValue, setEnteredValue] = useState('');
+const CourseInput = ({ onAddGoal }) => {
+  const [enteredValue, setEnteredValue] = useState("");
 
-  const goalInputChangeHandler = event => {
+  const goalInputChangeHandler = (event) => {
     setEnteredValue(event.target.value);
   };
 
-  const formSubmitHandler = event => {
-    event.preventDefault();
-    props.onAddGoal(enteredValue);
-  };
+  const formSubmitHandler = useCallback(
+    (e) => {
+      e.preventDefault();
+      if (enteredValue.trim().length === 0) {
+        return;
+      }
+      onAddGoal(enteredValue);
+    },
+    [enteredValue, onAddGoal]
+  );
 
   return (
     <form onSubmit={formSubmitHandler}>
