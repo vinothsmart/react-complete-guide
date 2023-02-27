@@ -1,19 +1,20 @@
 import React, { useCallback, useState } from "react";
-
 import Button from "../../UI/Button/Button";
 import "./CourseInput.css";
 
 const CourseInput = ({ onAddGoal }) => {
   const [enteredValue, setEnteredValue] = useState("");
+  const [isValid, setIsValid] = useState(true);
 
-  const goalInputChangeHandler = (event) => {
-    setEnteredValue(event.target.value);
-  };
+  const goalInputChangeHandler = useCallback((e) => {
+    setEnteredValue(e.target.value);
+  }, []);
 
   const formSubmitHandler = useCallback(
     (e) => {
       e.preventDefault();
       if (enteredValue.trim().length === 0) {
+        setIsValid(false);
         return;
       }
       onAddGoal(enteredValue);
@@ -24,7 +25,7 @@ const CourseInput = ({ onAddGoal }) => {
   return (
     <form onSubmit={formSubmitHandler}>
       <div className="form-control">
-        <label>Course Goal</label>
+        <label style={{ color: !isValid ? "red" : "black" }}>Course Goal</label>
         <input type="text" onChange={goalInputChangeHandler} />
       </div>
       <Button type="submit">Add Goal</Button>
