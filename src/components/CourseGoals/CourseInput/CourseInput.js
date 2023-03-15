@@ -12,6 +12,10 @@ const FormControl = styled.div`
     color: ${(props) => (props.invalid ? "red" : "black")};
   }
 
+  @media (min-width: 768px) {
+    width: auto;
+  }
+
   & input {
     display: block;
     width: 100%;
